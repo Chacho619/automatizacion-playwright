@@ -20,8 +20,11 @@ jobs:
       - name: Instalar dependencias
         run: npm install
 
-      - name: Instalar Playwright
-        run: npx playwright install chromium
+      - name: Instalar dependencias del sistema
+        run: sudo apt-get update && sudo apt-get install -y libnss3 libatk-bridge2.0-0 libx11-xcb1 libgtk-3-0 libxss1
+
+      - name: Instalar browsers Playwright
+        run: npx playwright install
 
       - name: Ejecutar tests
         run: npx playwright test
