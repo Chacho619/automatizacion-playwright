@@ -2,29 +2,26 @@ name: Playwright Tests
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout codigo
+      - name: Checkout código
         uses: actions/checkout@v4
 
-      - name: Instalar Node
+      - name: Usar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
       - name: Instalar dependencias
-        run: npm install
+        run: npm ci
 
-      - name: Instalar dependencias del sistema
-        run: sudo apt-get update && sudo apt-get install -y libnss3 libatk-bridge2.0-0 libx11-xcb1 libgtk-3-0 libxss1
-
-      - name: Instalar browsers Playwright
-        run: npx playwright install
+      - name: Instalar Playwright (forma recomendada)
+        run: npx playwright install --with-deps
 
       - name: Ejecutar tests
         run: npx playwright test
