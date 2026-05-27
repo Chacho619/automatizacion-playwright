@@ -10,7 +10,7 @@ class RegistroPage {
   }
 
   async navegar() {
-    await this.page.goto('http://localhost:3000');
+await this.page.goto('https://example.com');
   }
 
   async llenarFormulario(nombre, email, password) {

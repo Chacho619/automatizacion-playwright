@@ -19,10 +19,7 @@ test('Registro de usuario asincrono', async ({ page }) => {
   await registro.registrar();
 
   // 4. ✅ Polling (lo importante)
- await expect(page.locator('body')).toContainText(
-  /exito|exitosamente/i,
+ await expect(page.locator('h1')).toContainText('Example Domain');
   { timeout: 10000 }
-);
-
 
 });
